@@ -1,0 +1,4 @@
+study,model,reported_metric,reported_value,notes
+"Kulyabin et al., 2024 (OCTDL dataset paper, Scientific Data)",ResNet50 / VGG16,Class-wise balanced accuracy,"up to ~0.98 (best class AMD 0.963, worst class RVO 0.633)",Original dataset paper; per-class balanced accuracy on their own split.
+ViT vs Swin vs ConvNeXt comparative study on OCTDL,ConvNeXt (best of the three),Validation accuracy,0.945,All three transformer/conv architectures exceeded 0.91 validation accuracy.
+WARN (weighted attention residual network) on OCTDL,WARN,Accuracy / F1 / AUC,90.68% / 91.29% / 97.50%,Reported with their own ablation + significance testing on OCTDL.

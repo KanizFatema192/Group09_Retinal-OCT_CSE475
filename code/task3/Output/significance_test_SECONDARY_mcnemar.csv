@@ -1,0 +1,2 @@
+test,compared,baseline_only_correct,gnn_only_correct,discordant_pairs,statistic,p_value,alpha,significant,role
+Exact McNemar (statsmodels),"Final GNN vs Best baseline (Improved CNN), single held-out test set",12,17,29,12.0,0.45825831964612007,0.05,False,secondary/supplementary — see section 14 for the primary CV-based test

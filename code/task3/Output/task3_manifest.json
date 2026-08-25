@@ -1,0 +1,54 @@
+{
+  "dataset": "OCTDL",
+  "classes": [
+    "AMD",
+    "DME",
+    "ERM",
+    "NO",
+    "RAO",
+    "RVO",
+    "VID"
+  ],
+  "image_size": 128,
+  "grid_size": 8,
+  "split": "70/15/15, PATIENT-GROUPED (GroupShuffleSplit on patient_id), random_state=42",
+  "cv_scheme": "5-fold StratifiedGroupKFold on patient_id (dev pool = train+val), epochs=25 (matches main training run)",
+  "augmentation": "horizontal flip + small affine transform on training only",
+  "graph_node_definition": "8x8 spatial image patches",
+  "primary_metric": "validation macro-F1 (model selection)",
+  "secondary_metrics": [
+    "accuracy",
+    "balanced_accuracy",
+    "weighted_f1"
+  ],
+  "best_baseline": "Improved CNN",
+  "final_model": "A3_global_fusion",
+  "significance_tests": {
+    "primary": "Wilcoxon signed-rank across 5 paired CV-fold macro-F1 scores (Final GNN vs best baseline) \u2014 see significance_test_PRIMARY_wilcoxon.csv",
+    "secondary": "Exact McNemar on the single held-out test set \u2014 see significance_test_SECONDARY_mcnemar.csv"
+  },
+  "related_work_file": "/kaggle/working/task3_artifacts_fixed/related_work.csv",
+  "ablation_file": "/kaggle/working/task3_artifacts_fixed/ablation_results.csv",
+  "cv_file": "/kaggle/working/task3_artifacts_fixed/five_fold_cv.csv",
+  "model_improvements": [
+    "stronger patch CNN encoder",
+    "residual GCN layers",
+    "attention pooling",
+    "optional global image branch",
+    "AdamW + ReduceLROnPlateau",
+    "class-weighted label-smoothed loss",
+    "gradient clipping",
+    "early stopping",
+    "GraphSAGE variant added to the ablation sweep (A6)",
+    "optimizer and LR-schedule isolated as separate ablation axes (A7, A8)"
+  ],
+  "fixes_vs_original_task3_notebook": [
+    "Patient-grouped train/val/test split (was plain stratified split by image; risked leaking the same patient across splits).",
+    "Patient-grouped 5-fold CV via StratifiedGroupKFold (was StratifiedKFold, no grouping).",
+    "CV epochs raised to match the main run (was 12 vs 25, under-training CV folds).",
+    "Added the actual Task-2-style 'best baseline' (classical ML on ResNet50 features), re-run on this split, instead of only comparing to a freshly invented 'Improved CNN'.",
+    "Added related-work numbers with citations to the final comparison.",
+    "Switched the primary significance test to Wilcoxon signed-rank on the CV folds; kept McNemar on the single test split as a clearly-labelled secondary check.",
+    "Explainability (SHAP + LIME) is intentionally NOT in this notebook \u2014 see the companion notebook 'GroupNN_Dataset_task3_XAI_SHAP_LIME.ipynb'."
+  ]
+}

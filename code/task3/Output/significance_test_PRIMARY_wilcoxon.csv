@@ -1,0 +1,2 @@
+test,compared,statistic,p_value,alpha,significant,final_gnn_mean,baseline_mean
+"Wilcoxon signed-rank (paired, 5-fold CV, macro_f1)",Final GNN vs Best baseline (Improved CNN),7.0,1.0,0.05,False,0.6193560294736408,0.6174818433095792
