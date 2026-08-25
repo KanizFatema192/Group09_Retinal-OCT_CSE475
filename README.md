@@ -13,9 +13,9 @@ Dataset link: https://www.kaggle.com/datasets/orvile/octdl-optical-coherence-tom
 # Track
 Track 1 . GNN
 # How to Run the Code
-# Requirements
+## Requirements
 Install the Python libraries listed in requirements.txt.
-# Input Files
+## Input Files
 
 The Task 3 explainability notebook uses the following artifact files, produced by the Task 3 improvement/ablation notebook and located in the code/task3/Output/ folder:
 
@@ -26,16 +26,16 @@ The Task 3 explainability notebook uses the following artifact files, produced b
 
 All other notebooks (Task 1 EDA, Task 2 baselines, Task 2 proposed model, Task 3 improvement/ablation) read the OCTDL dataset directly from Kaggle input and do not require any file from this repository.
 
-# Running the Notebooks
+## Running the Notebooks
 Open the notebook from the code/task1/, code/task2/, or code/task3/ folder.
 Make sure the dataset path and (for the explainability notebook) the CSV/artifact file paths are correct.
 Run all cells from top to bottom.
 
-# Dependencies
+## Dependencies
 
 The notebooks were developed using the Kaggle Notebook environment with standard Python libraries (torch, torchvision, torch-geometric, scikit-learn, pandas, numpy, scipy, imbalanced-learn, statsmodels, xgboost, lightgbm, shap, lime, scikit-image, plotly, seaborn, umap-learn).
 
-# Hardware
+## Hardware
 
 Kaggle GPU (Tesla T4 / P100).
 # Result
